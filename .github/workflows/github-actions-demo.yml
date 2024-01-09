@@ -41,6 +41,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: action04-1
+        run:
+          pwd
+      - name: action04-2
         run: |
           ls -la ./sample/
 
