@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: action04-1
         run: |
-          ls -la sample/
+          ls -la ./sample/
 
   action05:
     runs-on: ubuntu-22.04
