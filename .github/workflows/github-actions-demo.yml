@@ -16,10 +16,18 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
-  copy:
+  action01:
     runs-on: ubuntu-22.04
     steps:
       - run: echo "hello world"
+
+  action02:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: action02-1
+        run: |
+          echo "Current directory contents:"
+          echo $(ls)
 
       # - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       # - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
