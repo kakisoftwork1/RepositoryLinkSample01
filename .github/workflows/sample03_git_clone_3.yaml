@@ -28,5 +28,6 @@ jobs:
       - name: copy OpenAPI specification file
         run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}
 
-      # git@github.com:woomsdev/wooms-office.git
-      # git@github.com:kakisoftwork1/RepositoryLinkSample02.git
+      - name: show target file list
+        run: ls ${{ env.DESTINATION_DIRECTORY }}
+
