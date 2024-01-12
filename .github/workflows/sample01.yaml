@@ -63,7 +63,7 @@ jobs:
       - run: ls ${{ env.SOURCE_DIRECTORY }}
 
   #=======================================
-  #　 
+  #
   #=======================================
   action06:
     runs-on: ubuntu-22.04
@@ -73,7 +73,7 @@ jobs:
 
       - uses: actions/checkout@v4
       - run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}
-      - run: cp core/APISpecifications/petstore.yaml workdir01/petstore.yaml
+      # - run: cp core/APISpecifications/petstore.yaml workdir01/petstore.yaml
 
       - run: ls ${{ env.DESTINATION_DIRECTORY }}
 
