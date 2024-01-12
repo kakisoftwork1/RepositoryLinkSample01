@@ -5,8 +5,9 @@ env:
   # VAL
   MY_ACCOUNT_NAME: kakisoftwork1
   TARGET_REPOSITORY_NAME: RepositoryLinkSample02   # ※ 末尾に ".git" は不要
-  TARGET_OPAN_API_FILE_PATH: core/APISpecifications
-  TARGET_OPAN_API_FILE_NAME: petstore.yaml
+  SOURCE_DIRECTORY: core/APISpecifications
+  TARGET_OPAN_API_FILE_NAME: petstore.yaml         # OpenAPI仕様書のファイル名
+  DESTINATION_DIRECTORY: workdir01
 jobs:
   #=======================
   #     変数の値を出力
@@ -59,6 +60,19 @@ jobs:
         run: echo "show target directrie's file list"
 
       - uses: actions/checkout@v4
-      - run: ls ${{ env.TARGET_OPAN_API_FILE_PATH }}
+      - run: ls ${{ env.SOURCE_DIRECTORY }}
 
+  #=======================================
+  #　 
+  #=======================================
+  action06:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: show target directrie's file list
+        run: echo "show target directrie's file list"
+
+      - uses: actions/checkout@v4
+      - run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE_NAME }} ${{ env.TARGET_REPOSITORY_NAME }}/${{ env.TARGET_OPAN_API_FILE_NAME }}
+
+      - run: ls ${{ env.TARGET_REPOSITORY_NAME }}
 
