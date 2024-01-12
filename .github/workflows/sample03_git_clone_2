@@ -5,14 +5,14 @@ jobs:
     #      git clone
     #=======================
     action01:
-      runs-on: ubuntu-22.04
+      runs-on: ubuntu-latest
       steps:
-      - name: Checkout My Repository
+      - name: Checkout
         uses: actions/checkout@v3
-        # with:
-        #   path: main
+        with:
+          path: main
 
-      - name: Checkout Target Repository
+      - name: Checkout kakisoftwork1/RepositoryLinkSample02
         uses: actions/checkout@v3
         with:
           repository: kakisoftwork1/RepositoryLinkSample02
@@ -20,5 +20,3 @@ jobs:
 
       - run: ls
 
-      # git@github.com:woomsdev/wooms-office.git
-      # git@github.com:kakisoftwork1/RepositoryLinkSample02.git
