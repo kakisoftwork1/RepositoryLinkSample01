@@ -16,3 +16,5 @@ jobs:
     steps:
       - run: pwd
       - run: ls
+      - run: ls -a
+
