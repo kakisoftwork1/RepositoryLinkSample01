@@ -30,5 +30,6 @@ jobs:
   action03:
     runs-on: ubuntu-22.04
     steps:
-      - run: cd core
-
+      - name: Checkout
+        uses: actions/checkout@v4
+      - run: ls
