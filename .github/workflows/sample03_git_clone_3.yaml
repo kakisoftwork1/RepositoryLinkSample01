@@ -2,7 +2,7 @@ name: Clone Repository
 on: [push]
 env:
   MY_ACCOUNT_NAME: kakisoftwork1
-  TARGET_REPOSITORY_NAME: RepositoryLinkSample02
+  TARGET_REPOSITORY_NAME: RepositoryLinkSample02   # ※ 末尾に ".git" は不要
 jobs:
     #=======================
     #      git clone
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Target Repository
         uses: actions/checkout@v3
         with:
-            repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}.git
+            repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
             path: ${{ env.TARGET_REPOSITORY_NAME }}
 
 
