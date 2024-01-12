@@ -84,4 +84,3 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
        - run: echo "show secret token ${{ secrets.TARGET_REPOSITORY_TOKEN }}"
-       - run: echo "show secret token ${{ secrets.TARGET_REPOSITORY_TOKEN2 }}"
