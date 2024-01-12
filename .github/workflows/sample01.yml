@@ -27,7 +27,7 @@ jobs:
   #=======================
   #　    usersを指定
   #=======================
-  action04:
+  action03:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
