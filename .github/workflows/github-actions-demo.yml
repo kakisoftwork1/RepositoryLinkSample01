@@ -26,6 +26,11 @@ jobs:
         run: |
           pwd
 
+      # workspace
+      - name: List files in the repository2
+        run: |
+          ls -la
+
   action01:
     runs-on: ubuntu-22.04
     steps:
