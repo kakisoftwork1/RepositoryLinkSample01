@@ -6,8 +6,8 @@ env:
   MY_ACCOUNT_NAME: kakisoftwork1
   TARGET_REPOSITORY_NAME: RepositoryLinkSample02   # ※ 末尾に ".git" は不要
   SOURCE_DIRECTORY: core/APISpecifications
-  TARGET_OPAN_API_FILE_NAME: petstore.yaml         # OpenAPI仕様書のファイル名
-  DESTINATION_DIRECTORY: workdir01
+  TARGET_OPAN_API_FILE: petstore.yaml              # OpenAPI仕様書のファイル名
+  DESTINATION_DIRECTORY: workdir01                 # clone したリポジトリの保存先
 jobs:
   #=======================
   #     変数の値を出力
@@ -72,7 +72,8 @@ jobs:
         run: echo "show target directrie's file list"
 
       - uses: actions/checkout@v4
-      - run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE_NAME }} ${{ env.TARGET_REPOSITORY_NAME }}/${{ env.TARGET_OPAN_API_FILE_NAME }}
+      - run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}
+      - run: cp core/APISpecifications/petstore.yaml workdir01/petstore.yaml
 
-      - run: ls ${{ env.TARGET_REPOSITORY_NAME }}
+      - run: ls ${{ env.DESTINATION_DIRECTORY }}
 
