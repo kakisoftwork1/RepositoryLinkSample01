@@ -1,0 +1,12 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  action01:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: echo "github.event_name - ${{ github.event_name }} "    # push
+      - run: echo "runner.os         - ${{ runner.os }}         "    # Linux
+      - run: echo "github.ref        - ${{ github.ref }}        "    # ref/heads/main
+      - run: echo "github.repository - ${{ github.repository }} "    # kakisoftwork1/RepositoryLinkSample01
+      - run: echo "github.workspace  - ${{ github.workspace }}  "    # ''
+      - run: echo "job.status        - ${{ job.status }}        "    # success
