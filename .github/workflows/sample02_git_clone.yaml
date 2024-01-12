@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - run: gie clone ${{ env.TARGET_REPOSITORY }}
+      - run: git clone ${{ env.TARGET_REPOSITORY }}
