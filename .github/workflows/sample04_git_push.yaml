@@ -32,6 +32,9 @@ jobs:
         - name: Copy OpenAPI specification file
           run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}
 
+        - run: cd ${{ env.TARGET_REPOSITORY_NAME }}
+        - run: ls
+
         # - name: Commit and push changes
         #   run: |
         #     cd ${{ env.TARGET_REPOSITORY_NAME }}
