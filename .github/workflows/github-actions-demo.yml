@@ -16,6 +16,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
+      # workspace
+      - name: List files in the repository2
+        run: |
+          ls
+
   action01:
     runs-on: ubuntu-22.04
     steps:
