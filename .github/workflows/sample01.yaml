@@ -2,6 +2,11 @@ name: GitHub Actions Demo
 on: [push]
 env:
   MY_VARIABLE_01: my_val_01
+  # VAL
+  MY_ACCOUNT_NAME: kakisoftwork1
+  TARGET_REPOSITORY_NAME: RepositoryLinkSample02   # ※ 末尾に ".git" は不要
+  TARGET_OPAN_API_FILE_PATH: core/APISpecifications
+  TARGET_OPAN_API_FILE_NAME: petstore.yaml
 jobs:
   #=======================
   #     変数の値を出力
@@ -43,3 +48,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: echo "this is env=${{ env.MY_VARIABLE_01 }}"
+
+  #=======================
+  #　    変数を定義
+  #=======================
+  action04:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: ls ${{ env.TARGET_OPAN_API_FILE_PATH }}

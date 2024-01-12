@@ -3,6 +3,8 @@ on: [push]
 env:
   MY_ACCOUNT_NAME: kakisoftwork1
   TARGET_REPOSITORY_NAME: RepositoryLinkSample02   # ※ 末尾に ".git" は不要
+  TARGET_OPAN_API_FILE_PATH: core/APISpecifications
+  TARGET_OPAN_API_FILE_NAME: petstore.yaml
 jobs:
     #=======================
     #      git clone
@@ -19,13 +21,10 @@ jobs:
             repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
             path: ${{ env.TARGET_REPOSITORY_NAME }}
 
-      # - name: Checkout Target Repository
-      #   uses: actions/checkout@v3
-      #   with:
-      #       repository: kakisoftwork1/RepositoryLinkSample02
-      #       path: RepositoryLinkSample02
-
       - name: show file list
+        run: ls
+
+      - name: copy OpenAPI specification file
         run: ls
 
       # git@github.com:woomsdev/wooms-office.git
