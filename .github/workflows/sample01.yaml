@@ -63,7 +63,7 @@ jobs:
       - run: ls ${{ env.SOURCE_DIRECTORY }}
 
   #=======================================
-  #
+  #　 対象ディレクトリにファイルをコピー
   #=======================================
   action06:
     runs-on: ubuntu-22.04
@@ -76,4 +76,12 @@ jobs:
       # - run: cp core/APISpecifications/petstore.yaml workdir01/petstore.yaml
 
       - run: ls ${{ env.DESTINATION_DIRECTORY }}
+
+  #=======================================
+  #　       シークレットキーを表示
+  #=======================================
+  action07:
+    runs-on: ubuntu-22.04
+    steps:
+       - run: echo "show target ${{ secrets.TARGET_REPOSITORY_TOKEN }}"
 
