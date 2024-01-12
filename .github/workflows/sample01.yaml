@@ -49,12 +49,16 @@ jobs:
     steps:
       - run: echo "this is env=${{ env.MY_VARIABLE_01 }}"
 
-  #=======================
-  #　    変数を定義
-  #=======================
+  #=======================================
+  #　 対象ディレクトリのファイル一覧を表示
+  #=======================================
   action05:
     runs-on: ubuntu-22.04
     steps:
-      - run: echo "show target directrie's file list"
+      - name: show target directrie's file list
+        run: echo "show target directrie's file list"
+
       - uses: actions/checkout@v4
       - run: ls ${{ env.TARGET_OPAN_API_FILE_PATH }}
+
+
