@@ -10,3 +10,9 @@ jobs:
       - run: echo "github.repository - ${{ github.repository }} "    # kakisoftwork1/RepositoryLinkSample01
       - run: echo "github.workspace  - ${{ github.workspace }}  "    # ''
       - run: echo "job.status        - ${{ job.status }}        "    # success
+
+  action02:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: pwd
+      - run: ls
