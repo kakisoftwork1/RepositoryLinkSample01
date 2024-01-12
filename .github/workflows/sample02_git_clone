@@ -12,3 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - run: git clone ${{ env.TARGET_REPOSITORY }}
+      # NG。要アクセス情報

@@ -1,0 +1,24 @@
+name: Clone Repository
+on: [push]
+jobs:
+    #=======================
+    #      git clone
+    #=======================
+    action01:
+      runs-on: ubuntu-22.04
+      steps:
+      - name: Checkout My Repository
+        uses: actions/checkout@v3
+        # with:
+        #   path: main
+
+      - name: Checkout Target Repository
+        uses: actions/checkout@v3
+        with:
+          repository: kakisoftwork1/RepositoryLinkSample02
+          path: RepositoryLinkSample02
+
+      - run: ls
+
+      # git@github.com:woomsdev/wooms-office.git
+      # git@github.com:kakisoftwork1/RepositoryLinkSample02.git
