@@ -1,6 +1,9 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
+  #=======================
+  #     変数の値を出力
+  #=======================
   action01:
     runs-on: ubuntu-22.04
     steps:
@@ -11,10 +14,21 @@ jobs:
       - run: echo "github.workspace  - ${{ github.workspace }}  "    # ''
       - run: echo "job.status        - ${{ job.status }}        "    # success
 
+  #=======================
+  #        基本操作
+  #=======================
   action02:
     runs-on: ubuntu-22.04
     steps:
       - run: pwd
       - run: ls
       - run: ls -a
+
+  #=======================
+  #
+  #=======================
+  action03:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: cd core
 
