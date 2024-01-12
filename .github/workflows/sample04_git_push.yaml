@@ -11,10 +11,10 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
         - name: Checkout My Repository
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
 
         # - name: Checkout Target Repository
-        #   uses: actions/checkout@v3
+        #   uses: actions/checkout@v4
         #   with:
         #       repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
         #       path: ${{ env.TARGET_REPOSITORY_NAME }}
@@ -23,7 +23,7 @@ jobs:
         #   run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}
 
         - name: Checkout Target Repository
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
           with:
               repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
               path: ${{ env.TARGET_REPOSITORY_NAME }}
