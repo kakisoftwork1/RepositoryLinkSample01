@@ -25,9 +25,9 @@ jobs:
       - run: ls -a
 
   #=======================
-  #
+  #　    usersを指定
   #=======================
-  action03:
+  action04:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
