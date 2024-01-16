@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Checkout Target Repository
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
             repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
             path: ${{ env.TARGET_REPOSITORY_NAME }}
