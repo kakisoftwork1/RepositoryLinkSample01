@@ -50,6 +50,9 @@ jobs:
         run: echo "execute step4"
 
 
+
+
+
       # # 変更がある場合、同期先のリポジトリに pushする
       # - name: Commit and push changes
       #   if: steps.check_changes.outputs.result == 'Changes detected'
