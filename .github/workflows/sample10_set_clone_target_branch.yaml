@@ -43,20 +43,39 @@ jobs:
       - name: Show target file list
         run: ls ${{ env.DESTINATION_DIRECTORY }}
 
+
       # 変更が無い場合、処理を終了する
       - name: Check for changes
-        id: check_changes
         run: |
-            git diff --exit-code || echo "Changes detected"
+            if [[ -z $(diff core/APISpecifications/petstore.yaml core/APISpecifications/petstore.yaml) ]]; then
+              echo "No changes detected."
+              exit 1
+            else
+              echo "Changes detected!"
+            fi
 
       # 変更がある場合、同期先のリポジトリに pushする
       - name: Commit and push changes
-        if: steps.check_changes.outputs.result == 'Changes detected'
         run: |
-            cd ${{ env.TARGET_REPOSITORY_NAME }}
-            git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
-            git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
-            git add .
-            git commit -m "Update OpenAPI pecification file"
-            git push
+            echo "Changes detected!2222222222222222222"
+
+
+
+
+      # # 変更が無い場合、処理を終了する
+      # - name: Check for changes
+      #   id: check_changes
+      #   run: |
+      #       git diff --cached --exit-code || echo "Changes detected"
+
+      # # 変更がある場合、同期先のリポジトリに pushする
+      # - name: Commit and push changes
+      #   if: steps.check_changes.outputs.result == 'Changes detected'
+      #   run: |
+      #       cd ${{ env.TARGET_REPOSITORY_NAME }}
+      #       git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
+      #       git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
+      #       git add .
+      #       git commit -m "Update OpenAPI pecification file"
+      #       git push
 
