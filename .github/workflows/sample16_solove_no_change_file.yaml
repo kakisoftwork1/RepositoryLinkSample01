@@ -32,7 +32,7 @@ jobs:
         continue-on-error: true
         id: check_for_changes
         run: |
-            if diff -q ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml; then
+            if diff -q ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore.yaml; then
                 # 差分が無かった場合
                 echo "is_editted=0" >> $GITHUB_OUTPUT
             else
