@@ -23,8 +23,8 @@ jobs:
       steps:
       - name: Checkout My Repository
         uses: actions/checkout@v4
-        with:
-          ref: develop
+        # with:
+        #   ref: develop
 
       - name: Checkout Target Repository
         uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
             repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
             path: ${{ env.TARGET_REPOSITORY_NAME }}
             token: ${{ secrets.KAKISOFTWORK1TOKEN }}    # 同期先リポジトリのアクセストークン（同期元にもシークレットキーとして登録）
-            ref: develop
+            # ref: develop
 
       - name: Show file list
         run: ls
