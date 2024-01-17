@@ -51,14 +51,6 @@ jobs:
                 echo "is_editted=1" >> $GITHUB_OUTPUT
             fi
 
-
-# # stepsのイメージです
-# - id: awesome
-#   run: echo "character=shion" >> $GITHUB_OUTPUT
-# - run: |
-#     # あとに続くステップでは ${{ steps.awesome.outputs.is_editted }} でshionを参照できます
-
-
       # 後続の処理１
       - name: Step 3
         run: echo "This is step 3 - Output was ${{ steps.check_for_changes.outputs.is_editted }}"
