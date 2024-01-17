@@ -33,17 +33,27 @@ jobs:
                 # 差分が無かった場合
                 # echo "0"
                 # echo "::set-output result=MY_OUTPUT::Hello, world!"
-                echo "{name}={value}" >> $GITHUB_STATE
                 # echo "{name01}={value}" >> $GITHUB_STATE
+                echo "character=shion" >> $GITHUB_OUTPUT
             else
                 # 差分があった場合
-                echo "1"
+                # echo "1"
+                echo "character=shion" >> $GITHUB_OUTPUT
                 # echo "::set-output result=MY_OUTPUT::Hello, world22222!"
             fi
 
-      # # 後続の処理１
-      # - name: Step 3
-      #   run: echo "This is step 3 - Output was ${{ steps.is_editted.outputs.MY_OUTPUT }}"
+
+# # stepsのイメージです
+# - id: awesome
+#   run: echo "character=shion" >> $GITHUB_OUTPUT
+# - run: |
+#     # あとに続くステップでは ${{ steps.awesome.outputs.character }} でshionを参照できます
+
+
+      # 後続の処理１
+      - name: Step 3
+        run: echo "This is step 3 - Output was ${{ steps.is_editted.outputs.character }}"
+        # run: echo "This is step 3 - Output was ${{ steps.is_editted.outputs.MY_OUTPUT }}"
 
       # # 後続の処理２
       # - name: Step 4
