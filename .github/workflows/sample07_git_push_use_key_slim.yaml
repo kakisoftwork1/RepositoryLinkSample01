@@ -23,7 +23,7 @@ jobs:
         with:
             repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
             path: ${{ env.TARGET_REPOSITORY_NAME }}
-            token: ${{ secrets.KAKISOFTWORK1TOKEN }}
+            token: ${{ secrets.KAKISOFTWORK1TOKEN }}    # 同期先ファイルのアクセストークン（同期元にもシークレットキーとして登録）
 
       - name: Show file list
         run: ls
