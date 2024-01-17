@@ -30,9 +30,9 @@ jobs:
       # 変更が無い場合、処理を終了する
       - name: Check for changes
         id: check_for_changes
+            # diff の終了コードが 1になっている。その時点でエラーとなっているっぽい。
         run: |
-            # diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null
-            diff_output=$(diff petstore.yaml petstore2.yaml)
+            diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null
             if [ $? -eq 0 ]; then
                 # 差分が無かった場合
                 # echo "0"
