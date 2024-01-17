@@ -8,7 +8,7 @@ env:
   DESTINATION_DIRECTORY: RepositoryLinkSample02/APISpecifications    # clone したリポジトリの保存先
 jobs:
     #=======================
-    #      git pusu(success)
+    #      git clone
     #=======================
     action01:
       runs-on: ubuntu-22.04

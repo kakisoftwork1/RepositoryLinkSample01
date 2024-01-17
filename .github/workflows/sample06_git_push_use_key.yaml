@@ -6,9 +6,11 @@ env:
   SOURCE_DIRECTORY: core/APISpecifications
   TARGET_OPAN_API_FILE: petstore.yaml                                # OpenAPI仕様書のファイル名
   DESTINATION_DIRECTORY: RepositoryLinkSample02/APISpecifications    # clone したリポジトリの保存先
+  USER_NAME : Your Name
+  USER_EMAIL : your.email@example.com
 jobs:
     #=======================
-    #      git clone
+    #      git pusu(success)
     #=======================
     action01:
       runs-on: ubuntu-22.04
@@ -32,11 +34,11 @@ jobs:
       - name: Show target file list
         run: ls ${{ env.DESTINATION_DIRECTORY }}
 
-      - name: Commit and push changes
+      - name: Commit and Push
         run: |
             cd ${{ env.TARGET_REPOSITORY_NAME }}
-            git config --global user.name "Your Name"
-            git config --global user.email "your.email@example.com"
+            git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
+            git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
             git add .
             git commit -m "Update OpenAPI spec"
             git push
