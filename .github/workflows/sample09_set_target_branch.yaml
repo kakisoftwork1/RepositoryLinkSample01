@@ -1,8 +1,9 @@
 name: Synchronize Target Repository
-on:
-  push:
-    branches:
-      - develop
+on: [push]
+# on:
+#   push:
+#     branches:
+#       - develop
   # pull_request:
   #   types: [closed]
 env:
@@ -43,7 +44,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-            echo "No change" | git diff --exit-code || echo "Changes detected"
+            git diff --exit-code || echo "Changes detected"
 
       # 変更がある場合、同期先のリポジトリに pushする
       - name: Commit and push changes
