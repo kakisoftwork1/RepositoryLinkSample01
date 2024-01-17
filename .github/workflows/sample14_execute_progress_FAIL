@@ -32,8 +32,6 @@ jobs:
         continue-on-error: true
         id: check_for_changes
         run: |
-            pwd
-            ls
             ls ${{ env.SOURCE_DIRECTORY }}
             # diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null
             diff_output=$(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml)

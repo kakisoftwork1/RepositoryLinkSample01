@@ -1,0 +1,69 @@
+name: Synchronize Target Repository
+on: [push]
+# on:
+#   push:
+#     branches:
+#       - develop
+  # pull_request:
+  #   types: [closed]
+env:
+  MY_ACCOUNT_NAME: kakisoftwork1                                     # 
+  TARGET_REPOSITORY_NAME: RepositoryLinkSample02                     # 同期対象のリポジトリ（末尾に ".git" は不要） ※clone先のディレクトリ名としても使用します
+  SOURCE_DIRECTORY: core/APISpecifications                           # コピー元のファイルを存在するディレクトリパス
+  TARGET_OPAN_API_FILE: petstore.yaml                                # OpenAPI仕様書のファイル名（コピー対象のファイル名）
+  DESTINATION_DIRECTORY: RepositoryLinkSample02/APISpecifications    # コピー先（同期先）のファイルを格納するディレクトリ
+  USER_NAME : Your Name                                              # git push時のユーザ名
+  USER_EMAIL : your.email@example.com                                # git push時のメールアドレス
+jobs:
+    #===================================
+    #   異なるリポジトリとファイルを同期
+    #===================================
+    synchronize-target-repository:
+      runs-on: ubuntu-22.04
+      steps:
+      - name: Checkout My Repository
+        uses: actions/checkout@v4
+
+      - name: Show source directoriy's file list
+        run: ls ${{ env.SOURCE_DIRECTORY }}
+
+      # 変更が無い場合、処理を終了する
+      - name: Check for changes
+        continue-on-error: true
+        id: check_for_changes
+        run: |
+            ls ${{ env.SOURCE_DIRECTORY }}
+            # diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null
+            diff_output=$(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml)
+            # if [ $? -eq 0 ]; then
+            if diff  ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null; then
+                # 差分が無かった場合
+                # echo "0"
+                # echo "::set-output result=MY_OUTPUT::Hello, world!"
+                # echo "{name01}={value}" >> $GITHUB_STATE
+                echo "is_editted=0" >> $GITHUB_OUTPUT
+            else
+                # 差分があった場合
+                # echo "1"
+                # echo "character=shion222" >> $GITHUB_OUTPUT
+                # echo "::set-output result=MY_OUTPUT::Hello, world22222!"
+                # echo "is_editted=1" >> $GITHUB_OUTPUT
+                echo "is_editted=0" >> $GITHUB_OUTPUT
+            fi
+
+
+# # stepsのイメージです
+# - id: awesome
+#   run: echo "character=shion" >> $GITHUB_OUTPUT
+# - run: |
+#     # あとに続くステップでは ${{ steps.awesome.outputs.is_editted }} でshionを参照できます
+
+
+      # 後続の処理１
+      - name: Step 3
+        run: echo "This is step 3 - Output was ${{ steps.check_for_changes.outputs.is_editted }}"
+        # run: echo "This is step 3 - Output was ${{ steps.is_editted.outputs.MY_OUTPUT }}"
+
+      # # 後続の処理２
+      # - name: Step 4
+      #   run: echo "This is step 4 - Output was ${{ steps.is_editted.outputs.MY_OUTPUT }}"
