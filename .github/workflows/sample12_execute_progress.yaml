@@ -24,6 +24,9 @@ jobs:
       - name: Checkout My Repository
         uses: actions/checkout@v4
 
+      - name: Show source directoriy's file list
+        run: ls ${{ env.SOURCE_DIRECTORY }}
+
       # 変更が無い場合、処理を終了する
       - name: Check for changes
         id: check_for_changes
