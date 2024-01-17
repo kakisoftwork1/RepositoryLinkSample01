@@ -10,9 +10,10 @@ env:
   DESTINATION_DIRECTORY: workdir01                 # clone したリポジトリの保存先
 jobs:
   #=======================
-  #     変数の値を出力
+  #  Step 3 まで実行してしまう。
+  #  「exit 1」エラーとなる。
   #=======================
-  action08:
+  action01:
     runs-on: ubuntu-22.04
     steps:
     - name: Step 1
