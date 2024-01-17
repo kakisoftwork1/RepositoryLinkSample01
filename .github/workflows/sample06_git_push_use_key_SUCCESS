@@ -1,7 +1,7 @@
 name: Synchronize Target Repository
 on: [push]
 env:
-  MY_ACCOUNT_NAME: kakisoftwork1
+  MY_ACCOUNT_NAME: kakisoftwork1                                     # Github アカウント名
   TARGET_REPOSITORY_NAME: RepositoryLinkSample02                     # 同期対象のリポジトリ（末尾に ".git" は不要） ※clone先のディレクトリ名としても使用します
   SOURCE_DIRECTORY: core/APISpecifications                           # コピー元のファイルを存在するディレクトリパス
   TARGET_OPAN_API_FILE: petstore.yaml                                # OpenAPI仕様書のファイル名（コピー対象のファイル名）
