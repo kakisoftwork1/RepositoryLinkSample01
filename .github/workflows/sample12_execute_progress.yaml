@@ -35,9 +35,10 @@ jobs:
                 echo "1"  # 差分があった場合
             fi
 
-      # # 変更がある場合、同期先のリポジトリに pushする
-      # - name: Commit and push changes
-      #   # if: steps.is_editted.outputs.result == 'Changes detected'
-      #   run: |
-      #       echo "steps.is_editted.outputs.result - ${{ steps.is_editted.outputs.result }}"
-      #       echo "steps.is_editted.outputs.VALUE - ${{ steps.is_editted.outputs.VALUE }}"
+      # 後続の処理
+      - name: Step 3
+        run: echo "This is step 3"
+
+      # 後続の処理
+      - name: Step 4
+        run: echo "This is step 3"
