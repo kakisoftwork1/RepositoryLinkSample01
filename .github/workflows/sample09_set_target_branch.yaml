@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - develop
-  # pull_request:
+  #x pull_request:
   #   types: [closed]
 env:
   MY_ACCOUNT_NAME: kakisoftwork1
