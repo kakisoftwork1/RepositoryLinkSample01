@@ -1,0 +1,30 @@
+name: GitHub Actions Demo
+on: [push]
+env:
+  MY_VARIABLE_01: my_val_01
+  # VAL
+  MY_ACCOUNT_NAME: kakisoftwork1
+  TARGET_REPOSITORY_NAME: RepositoryLinkSample02   # ※ 末尾に ".git" は不要
+  SOURCE_DIRECTORY: core/APISpecifications
+  TARGET_OPAN_API_FILE: petstore.yaml              # OpenAPI仕様書のファイル名
+  DESTINATION_DIRECTORY: workdir01                 # clone したリポジトリの保存先
+jobs:
+  #=======================
+  #     変数の値を出力
+  #=======================
+  action08:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Step 1
+      run: echo "This is step 1"
+
+    - name: Step 2
+      run: |
+        # Some processing
+        echo "This is step 2"
+
+        # 正常終了して終わらせる
+        exit 0
+
+    - name: Step 3
+      run: echo "This is step 3"

@@ -70,7 +70,10 @@ jobs:
             echo "Changes detected!2222222222222222222"
 
 
-
+      - name: a Error
+          id: error_execution
+        run: |
+            echo "Changes detected!2222222222222222222"
 
       # # 変更が無い場合、処理を終了する
       # - name: Check for changes
