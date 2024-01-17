@@ -1,4 +1,4 @@
-name: Synchronize Repository
+name: Synchronize Target Repository
 on: [push]
 env:
   MY_ACCOUNT_NAME: kakisoftwork1
@@ -12,7 +12,7 @@ jobs:
     #===================================
     #   異なるリポジトリとファイルを同期
     #===================================
-    synchronize-repository:
+    synchronize-target-repository:
       runs-on: ubuntu-22.04
       steps:
       - name: Checkout My Repository
@@ -40,5 +40,5 @@ jobs:
             git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
             git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
             git add .
-            git commit -m "Update OpenAPI spec"
+            git commit -m "Update OpenAPI pecification file"
             git push
