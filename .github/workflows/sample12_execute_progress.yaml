@@ -28,7 +28,7 @@ jobs:
       - name: Check for changes
         id: check_for_changes
         run: |
-            diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} > /dev/null
+            diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null
             if [ $? -eq 0 ]; then
                 # 差分が無かった場合
                 # echo "0"
