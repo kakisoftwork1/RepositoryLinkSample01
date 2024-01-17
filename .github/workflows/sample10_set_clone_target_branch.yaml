@@ -57,9 +57,9 @@ jobs:
       # 変更が無い場合、処理を終了する
       - name: Check for changes
         run: |
-            if [[ -z $(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}) ]]; then
+            if [[ -z $(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}) ]]; then
               echo "No changes detected."
-              exit 0
+              exit 1
             else
               echo "Changes detected!"
             fi
