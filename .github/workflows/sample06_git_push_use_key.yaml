@@ -9,9 +9,9 @@ env:
   USER_NAME : Your Name                                              # git push時のユーザ名
   USER_EMAIL : your.email@example.com                                # git push時のメールアドレス
 jobs:
-    #=======================
-    #      git pusu(success)
-    #=======================
+    #===================================
+    #   異なるリポジトリとファイルを同期
+    #===================================
     synchronize-repository:
       runs-on: ubuntu-22.04
       steps:
