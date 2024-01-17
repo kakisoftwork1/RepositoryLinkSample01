@@ -1,0 +1,42 @@
+name: Clone Repository
+on: [push]
+env:
+  MY_ACCOUNT_NAME: kakisoftwork1
+  TARGET_REPOSITORY_NAME: RepositoryLinkSample02                     # ※ 末尾に ".git" は不要
+  SOURCE_DIRECTORY: core/APISpecifications
+  TARGET_OPAN_API_FILE: petstore.yaml                                # OpenAPI仕様書のファイル名
+  DESTINATION_DIRECTORY: RepositoryLinkSample02/APISpecifications    # clone したリポジトリの保存先
+jobs:
+    #=======================
+    #      git clone
+    #=======================
+    action01:
+      runs-on: ubuntu-22.04
+      steps:
+      - name: Checkout My Repository
+        uses: actions/checkout@v3
+
+      - name: Checkout Target Repository
+        uses: actions/checkout@v3
+        with:
+            repository: ${{ env.MY_ACCOUNT_NAME }}/${{ env.TARGET_REPOSITORY_NAME }}
+            path: ${{ env.TARGET_REPOSITORY_NAME }}
+            token: ${{ secrets.KAKISOFTWORK1TOKEN }}
+
+      - name: Show file list
+        run: ls
+
+      - name: Copy OpenAPI specification file
+        run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.DESTINATION_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }}
+
+      - name: Show target file list
+        run: ls ${{ env.DESTINATION_DIRECTORY }}
+
+      - name: Commit and push changes
+        run: |
+            cd ${{ env.TARGET_REPOSITORY_NAME }}
+            git config --global user.name "Your Name"
+            git config --global user.email "your.email@example.com"
+            git add .
+            git commit -m "Update OpenAPI spec"
+            git push
