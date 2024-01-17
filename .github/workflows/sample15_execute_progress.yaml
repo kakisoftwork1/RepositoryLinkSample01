@@ -36,7 +36,7 @@ jobs:
 
             # diff_result=$(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml)
             # if [[ ! -z "$diff_result" ]]; then
-            if diff -q ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml; then
+            if [[diff -q ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml]]; then
                 # 差分が無かった場合
                 # echo "0"
                 # echo "::set-output result=MY_OUTPUT::Hello, world!"
@@ -48,7 +48,7 @@ jobs:
                 # echo "character=shion222" >> $GITHUB_OUTPUT
                 # echo "::set-output result=MY_OUTPUT::Hello, world22222!"
                 # echo "is_editted=1" >> $GITHUB_OUTPUT
-                echo "is_editted=0" >> $GITHUB_OUTPUT
+                echo "is_editted=1" >> $GITHUB_OUTPUT
             fi
 
 
