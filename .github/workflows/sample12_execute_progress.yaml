@@ -34,11 +34,11 @@ jobs:
                 # echo "0"
                 # echo "::set-output result=MY_OUTPUT::Hello, world!"
                 # echo "{name01}={value}" >> $GITHUB_STATE
-                echo "character=shion222" >> $GITHUB_STATE
+                echo "character=shion1111" >> $GITHUB_OUTPUT
             else
                 # 差分があった場合
                 # echo "1"
-                echo "character=shion444" >> $GITHUB_STATE
+                echo "character=shion222" >> $GITHUB_OUTPUT
                 # echo "::set-output result=MY_OUTPUT::Hello, world22222!"
             fi
 
