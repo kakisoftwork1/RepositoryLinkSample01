@@ -33,10 +33,9 @@ jobs:
         id: check_for_changes
         run: |
             ls ${{ env.SOURCE_DIRECTORY }}
-            # diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null
-            diff_output=$(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml)
-            # if [ $? -eq 0 ]; then
-            if diff  ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml > /dev/null; then
+
+            diff_result=$(diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/petstore2.yaml)
+            if [[ ! -z "$diff_result" ]]; then
                 # 差分が無かった場合
                 # echo "0"
                 # echo "::set-output result=MY_OUTPUT::Hello, world!"
