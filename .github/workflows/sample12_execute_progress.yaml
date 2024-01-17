@@ -30,15 +30,19 @@ jobs:
         run: |
             diff ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_OPAN_API_FILE }} > /dev/null
             if [ $? -eq 0 ]; then
-                echo "0"  # 差分が無かった場合
+                # 差分が無かった場合
+                # echo "0"
+                echo "::set-output result=MY_OUTPUT::Hello, world!"
             else
-                echo "1"  # 差分があった場合
+                # 差分があった場合
+                # echo "1"
+                echo "::set-output result=MY_OUTPUT::Hello, world22222!"
             fi
 
-      # 後続の処理
+      # 後続の処理１
       - name: Step 3
-        run: echo "This is step 3"
+        run: echo "This is step 3 - Output was ${{ steps.is_editted.outputs.MY_OUTPUT }}"
 
-      # 後続の処理
+      # 後続の処理２
       - name: Step 4
-        run: echo "This is step 3"
+        run: echo "This is step 4 - Output was ${{ steps.is_editted.outputs.MY_OUTPUT }}"
