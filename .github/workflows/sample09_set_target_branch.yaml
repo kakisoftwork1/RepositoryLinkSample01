@@ -43,7 +43,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-            git diff --exit-code || echo "Changes detected"
+            echo "No change" | git diff --exit-code || echo "Changes detected"
 
       # 変更がある場合、同期先のリポジトリに pushする
       - name: Commit and push changes
