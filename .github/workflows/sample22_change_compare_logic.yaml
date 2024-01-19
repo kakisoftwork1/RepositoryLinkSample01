@@ -56,7 +56,7 @@ jobs:
             cd ${{ env.TARGET_REPOSITORY_NAME }}
             if [[ $(git diff) ]]; then
                 echo "Changes found."
-                echo "is_editted=0" >> $GITHUB_OUTPUT
+                echo "is_editted=1" >> $GITHUB_OUTPUT
             else
                 echo "No changes."
                 echo "is_editted=0" >> $GITHUB_OUTPUT
