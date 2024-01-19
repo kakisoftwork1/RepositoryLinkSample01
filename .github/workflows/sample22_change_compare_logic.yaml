@@ -50,7 +50,7 @@ jobs:
 
       #==========< 変更の有無をチェック >==========
       - name: Check for changes
-        continue-on-error: true
+        # continue-on-error: true
         id: check_for_changes
         run: |
             cd ${{ env.TARGET_REPOSITORY_NAME }}
