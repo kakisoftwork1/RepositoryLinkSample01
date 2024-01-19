@@ -55,6 +55,9 @@ jobs:
         run: |
             cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE_NAME }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE_NAME }}
             cd ${{ env.TARGET_REPOSITORY_NAME }}
+
+            # 「$?」等の変数化すると、何かと上手く行かない事が多い。
+
             # git diff
             # if [ $? -eq 0 ]; then
             #     echo "No changes."
