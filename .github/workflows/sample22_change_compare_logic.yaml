@@ -62,31 +62,17 @@ jobs:
                 echo "is_editted=0" >> $GITHUB_OUTPUT
             fi
 
-      # #==========< 変更の有無をチェック >==========
-      # - name: Check for changes
-      #   continue-on-error: true
-      #   id: check_for_changes
-      #   run: |
-      #       if diff -q ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE_NAME }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE_NAME }}; then
-      #           # 変更が無かった場合
-      #           echo "is_editted=0" >> $GITHUB_OUTPUT
-      #       else
-      #           # 変更があった場合
-      #           echo "is_editted=1" >> $GITHUB_OUTPUT
-      #       fi
-
-
-      # #==========< 変更がある場合、同期先のリポジトリに pushする >==========
-      # - name: Commit and push changes
-      #   if: steps.check_for_changes.outputs.is_editted == '1'
-      #   run: |
-      #       echo "Commit and push changes"
-      #       cd ${{ env.TARGET_REPOSITORY_NAME }}
-      #       git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
-      #       git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
-      #       git add .
-      #       git commit -m "Update OpenAPI pecification file"
-      #       git push
+      #==========< 変更がある場合、同期先のリポジトリに pushする >==========
+      - name: Commit and push changes
+        if: steps.check_for_changes.outputs.is_editted == '1'
+        run: |
+            echo "Commit and push changes"
+            cd ${{ env.TARGET_REPOSITORY_NAME }}
+            git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
+            git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
+            git add .
+            git commit -m "Update OpenAPI pecification file"
+            git push
 
 
 
