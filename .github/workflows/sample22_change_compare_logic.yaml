@@ -44,18 +44,16 @@ jobs:
       - name: Show target file list
         run: ls ${{ env.TARGET_DIRECTORY }}
 
-      # #==========< 同期元のファイルを、同期先のディレクトリにコピー（上書き） >==========
-      # - name: Copy sync file
-      #   run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE_NAME }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE_NAME }}
+      #==========< 同期元のファイルを、同期先のディレクトリにコピー（上書き） >==========
+      - name: Copy sync file
+        run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE_NAME }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE_NAME }}
 
       #==========< 変更の有無をチェック >==========
       - name: Check for changes
         continue-on-error: true
         id: check_for_changes
         run: |
-            cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE_NAME }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE_NAME }}
             cd ${{ env.TARGET_REPOSITORY_NAME }}
-
             if [[ $(git diff) ]]; then
                 echo "Changes found."
                 echo "is_editted=0" >> $GITHUB_OUTPUT
