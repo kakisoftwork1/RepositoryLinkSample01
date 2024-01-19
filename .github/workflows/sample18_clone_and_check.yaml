@@ -28,10 +28,11 @@ jobs:
       - name: Checkout My Repository
         uses: actions/checkout@v4
 
-      # トークンの参照はできたみたい
+      # トークン
       - name: show TARGET_REPOSITORY_ACCESS_TOKEN
         run: echo "${{ env.TARGET_REPOSITORY_ACCESS_TOKEN }}"
 
+      # 対象のリポジトリを指定
       - name: Checkout Target Repository
         uses: actions/checkout@v3
         with:
@@ -39,5 +40,6 @@ jobs:
             path: ${{ env.TARGET_REPOSITORY_NAME }}
             token: ${{ env.TARGET_REPOSITORY_ACCESS_TOKEN }}
 
+      # 対象ディレクトリのファイル一覧を表示
       - name: Show target file list
         run: ls ${{ env.DESTINATION_DIRECTORY }}
