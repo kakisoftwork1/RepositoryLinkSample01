@@ -51,7 +51,8 @@ jobs:
                 # 差分が無かった場合
                 echo "is_editted=0" >> $GITHUB_OUTPUT
             else
-                # 差分があった場合
+                # 差分があった場合、その内容を同期先のディレクトリに反映させる（上書き）
+                run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE_NAME }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE_NAME }}
                 echo "is_editted=1" >> $GITHUB_OUTPUT
             fi
 
