@@ -65,11 +65,10 @@ jobs:
         if: steps.check_for_changes.outputs.is_editted == '1'
         run: |
             echo "Commit and push changes"
-            # cd ${{ env.TARGET_REPOSITORY_NAME }}
-            # git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
-            # git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
-            # git add .
-            # git commit -m "Update OpenAPI pecification file"
-            # git push
-
+            cd ${{ env.TARGET_REPOSITORY_NAME }}
+            git config --global user.name "${{ env.TARGET_REPOSITORY_NAME }}"
+            git config --global user.email "${{ env.TARGET_REPOSITORY_NAME }}"
+            git add .
+            git commit -m "Update OpenAPI pecification file"
+            git push
 
