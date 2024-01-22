@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - develop
-  # # develop ブランチにマージされた時、アクションを起動する
+  # # develop ブランチにマージされた時、アクションを起動する（ ↓別にこれが無くても動く merge時に動くことが判明）
   # pull_request:
   #   branches:
   #     - develop
