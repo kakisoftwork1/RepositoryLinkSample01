@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+  # この書き方だと、develop 以外の close もトリガーとなる。
   pull_request:
     types:
       - closed
