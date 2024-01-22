@@ -69,6 +69,5 @@ jobs:
           cd ${{ env.TARGET_REPOSITORY }}
           git config --global user.name "${{ env.TARGET_REPOSITORY }}"
           git config --global user.email "${{ env.TARGET_REPOSITORY }}"
-          # git add .
           git commit -m "Update OpenAPI pecification file"
           git push
