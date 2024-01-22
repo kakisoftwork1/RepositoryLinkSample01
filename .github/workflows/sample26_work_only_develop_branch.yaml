@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - develop
-  # develop ブランチにマージされた時、アクションを起動する
-  pull_request:
-    branches:
-      - develop
-    types: [closed]
+  # # develop ブランチにマージされた時、アクションを起動する
+  # pull_request:
+  #   branches:
+  #     - develop
+  #   types: [closed]
 env:
     #-----------------------------------
     #               変数
