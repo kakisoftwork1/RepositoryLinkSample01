@@ -43,31 +43,4 @@ jobs:
       - name: Show target file list
         run: ls ${{ env.TARGET_DIRECTORY }}
 
-      #==========< 同期元のファイルを、同期先のディレクトリにコピー（上書き） >==========
-      - name: Copy sync file
-        run: cp ${{ env.SOURCE_DIRECTORY }}/${{ env.TARGET_FILE }} ${{ env.TARGET_DIRECTORY }}/${{ env.TARGET_FILE }}
 
-      #==========< 変更の有無をチェック >==========
-      - name: Check for changes
-        id: check_for_changes
-        run: |
-          cd ${{ env.TARGET_REPOSITORY }}
-          git add .
-          if [[ $(git diff --cached) ]]; then
-              echo "Changes found."
-              echo "is_editted=1" >> $GITHUB_OUTPUT
-          else
-              echo "No changes."
-              echo "is_editted=0" >> $GITHUB_OUTPUT
-          fi
-
-      #==========< 変更がある場合、同期先のリポジトリに pushする >==========
-      - name: Commit and push changes
-        if: steps.check_for_changes.outputs.is_editted == '1'
-        run: |
-          echo "Commit and push changes"
-          cd ${{ env.TARGET_REPOSITORY }}
-          git config --global user.name "${{ env.USER_NAME }}"
-          git config --global user.email "${{ env.USER_EMAIL }}"
-          git commit -m "Update OpenAPI pecification file"
-          git push
